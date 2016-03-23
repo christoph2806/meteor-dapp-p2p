@@ -1,0 +1,11 @@
+<template name="adjuster">
+	<main class="dapp-content">	
+		<h1>Schaden regulieren</h1>
+		{{> polices_table}}
+		<h4>PoliceID</h4>
+		<p><input type="text" id="policeID" class="dapp-large" /></p>
+		<button id="adjust" class="dapp-block-button dapp-small" >Regulieren</button>
+		<p>Ergebnis: <div id="res"></div></p>
+		<p><div style="color:#ff0000;" id="error"></div></p>
+	</main>
+</template>
