@@ -12,10 +12,10 @@ function adjust() {
 
 	document.getElementById("res").innerHTML="Warte auf Best&auml;tigung ...";
 	
-	GermanLife.contractInstance.adjustClaim(policeID, {from: GermanLife.adjusterAddress, gas:200000});
+	P2P_Insurance.contractInstance.adjustClaim(policeID, {from: P2P_Insurance.adjusterAddress, gas:200000});
 
-	var mNr = GermanLife.contractInstance.polices(policeID)[8];
-	GermanLife.contractInstance.ClaimAdjusted().watch(function (error, result) {
+	var mNr = P2P_Insurance.contractInstance.polices(policeID)[8];
+	P2P_Insurance.contractInstance.ClaimAdjusted().watch(function (error, result) {
 		if (!error && (result.args.policeID == policeID) && (mNr+"" <= result.args.mNr+"")) {
 			document.getElementById("res").innerText = "Schaden wurde reguliert.";
 			document.getElementById("policeID").value = "";
@@ -23,7 +23,7 @@ function adjust() {
 		}
 	});	
 	
-	GermanLife.contractInstance.ThrowError().watch(function (error, result) {
+	P2P_Insurance.contractInstance.ThrowError().watch(function (error, result) {
 		if (!error && (result.args.policeID == policeID) && (mNr+"" <= result.args.mNr+"")) {
 			document.getElementById("error").innerText = result.args.message;
 			document.getElementById("policeID").value = "";

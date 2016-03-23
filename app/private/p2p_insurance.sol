@@ -1,8 +1,7 @@
 
-var SOL_source = `
-/* GermanLife DAO */
+/* P2P Insurance  DAO */
 
-contract GermanLife {
+contract P2P_Insurance {
 
     /* Contract Variables and events */
     Police[] public polices;
@@ -29,7 +28,7 @@ contract GermanLife {
     }
 
     /* First time setup */
-    function GermanLife() {
+    function P2P_Insurance() {
 		claimsAdjuster = 0x8cd76b1a86bf067c584542509b88e0a5aca86506;
 		underwriter = 0x0837e68fd62e4e5b217d90913da91534c881440b;
     }
@@ -112,6 +111,3 @@ contract GermanLife {
 	}
 	
 }
-
-`;
-

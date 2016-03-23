@@ -1,10 +1,10 @@
-/* GermanLife ABI File */
+/* P2P_Insurance ABI File */
 
-GermanLife = {};
-GermanLife.address = '0xDcD2B249384dEcbc99591681a4c6579fE989d74E';
-GermanLife.adjusterAddress = web3.eth.accounts[2];
-GermanLife.underwriterAddress = web3.eth.accounts[3];
-GermanLife.abi = 
+P2P_Insurance = {};
+P2P_Insurance.address = '0xDcD2B249384dEcbc99591681a4c6579fE989d74E';
+P2P_Insurance.adjusterAddress = web3.eth.accounts[2];
+P2P_Insurance.underwriterAddress = web3.eth.accounts[3];
+P2P_Insurance.abi = 
 
 [{
 		"constant" : false,
@@ -250,16 +250,16 @@ GermanLife.abi =
 	}
 ];
 
-GermanLife.Contract = web3.eth.contract(GermanLife.abi);
-console.log(GermanLife.Contract);
-GermanLife.contractInstance = GermanLife.Contract.at(GermanLife.address);
-console.log(GermanLife.contractInstance);
+P2P_Insurance.Contract = web3.eth.contract(P2P_Insurance.abi);
+console.log(P2P_Insurance.Contract);
+P2P_Insurance.contractInstance = P2P_Insurance.Contract.at(P2P_Insurance.address);
+console.log(P2P_Insurance.contractInstance);
 
-GermanLife.SOL_source = 
+P2P_Insurance.SOL_source = 
 `
-/* GermanLife DAO */
+/* P2P_Insurance DAO */
 
-contract GermanLife {
+contract P2P_Insurance {
 
     /* Contract Variables and events */
     Police[] public polices;
@@ -286,9 +286,9 @@ contract GermanLife {
     }
 
     /* First time setup */
-    function GermanLife() {
-		claimsAdjuster = ${GermanLife.adjusterAddress};
-		underwriter = ${GermanLife.underwriterAddress};
+    function P2P_Insurance() {
+		claimsAdjuster = ${P2P_Insurance.adjusterAddress};
+		underwriter = ${P2P_Insurance.underwriterAddress};
     }
 
 	function simple() returns (uint result) { result = 1;}

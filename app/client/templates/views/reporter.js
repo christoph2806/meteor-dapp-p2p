@@ -12,10 +12,10 @@ function reportDamage() {
 	
 	document.getElementById("res").innerHTML="Warte auf Best&auml;tigung ...";
 	
-	GermanLife.contractInstance.reportDamage(policeID, report, {from: web3.eth.accounts[0], gas:200000});
+	P2P_Insurance.contractInstance.reportDamage(policeID, report, {from: web3.eth.accounts[0], gas:200000});
 
-	var mNr = GermanLife.contractInstance.polices(policeID)[8];
-	GermanLife.contractInstance.DamageReported().watch(function (error, result) {
+	var mNr = P2P_Insurance.contractInstance.polices(policeID)[8];
+	P2P_Insurance.contractInstance.DamageReported().watch(function (error, result) {
 		console.log(result.args.policeID);
 		console.log(policeID);
 		if (!error && (result.args.policeID == policeID) && (mNr+"" <= result.args.mNr+"")) {
@@ -26,7 +26,7 @@ function reportDamage() {
 		}
 	});	
 	
-	GermanLife.contractInstance.ThrowError().watch(function (error, result) {
+	P2P_Insurance.contractInstance.ThrowError().watch(function (error, result) {
 		if (!error && (result.args.policeID == policeID) && (mNr+"" <= result.args.mNr+"")) {
 			document.getElementById("error").innerText = result.args.message;
 			document.getElementById("policeID").value = "";

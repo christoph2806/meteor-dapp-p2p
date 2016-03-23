@@ -11,9 +11,9 @@ function apply() {
 		return false;
 	}
 	
-	var result = GermanLife.contractInstance.applyForPolice(name,amount,description,{from:web3.eth.accounts[0],gas:200000});
+	var result = P2P_Insurance.contractInstance.applyForPolice(name,amount,description,{from:web3.eth.accounts[0],gas:200000});
 	document.getElementById("res").innerHTML="Warte auf Best&auml;tigung ...";
-	GermanLife.contractInstance.PoliceApplied().watch(function (error, result) {
+	P2P_Insurance.contractInstance.PoliceApplied().watch(function (error, result) {
 		if (!error) {
 			document.getElementById("res").innerText = "Die Police-ID des Antrags lautet "+result.args.policeID;
 			document.getElementById("name").value = "";

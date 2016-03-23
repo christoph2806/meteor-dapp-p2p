@@ -3,8 +3,8 @@ Polices = {};
 
 Polices.listPolice = function(view) {
 
-	polices = GermanLife.contractInstance.polices;
-	numPolices = GermanLife.contractInstance.numPolices();
+	polices = P2P_Insurance.contractInstance.polices;
+	numPolices = P2P_Insurance.contractInstance.numPolices();
 	var table = "<table border=1><tr><th>Nr.</th><th>Name</th><th>Betrag</th><th>Versicherung</th><th>Policiert</th><th>Gemeldet</th><th>Reguliert</th><th>Schaden</th><th>MNr.</th></tr>";
 	for (i=0;i<numPolices;i++) {
 		var nr = i;

@@ -12,10 +12,10 @@ function issue() {
 	
 	document.getElementById("res").innerHTML="Warte auf Best&auml;tigung ...";
 	
-	GermanLife.contractInstance.issuePolice(policeID, {from: GermanLife.underwriterAddress, gas:200000});
+	P2P_Insurance.contractInstance.issuePolice(policeID, {from: P2P_Insurance.underwriterAddress, gas:200000});
 
-	var mNr = GermanLife.contractInstance.polices(policeID)[8];
-	GermanLife.contractInstance.PoliceIssued().watch(function (error, result) {
+	var mNr = P2P_Insurance.contractInstance.polices(policeID)[8];
+	P2P_Insurance.contractInstance.PoliceIssued().watch(function (error, result) {
 		//console.log('PoliceIssued: ' + result.args.policeID + ": " + mNr + "/" + result.args.mNr);
 		if (!error && (result.args.policeID == policeID) && (mNr+"" <= result.args.mNr+"")) {
 			document.getElementById("res").innerText = "Vertrag wurde policiert.";
@@ -24,7 +24,7 @@ function issue() {
 		}
 	});	
 	
-	GermanLife.contractInstance.ThrowError().watch(function (error, result) {
+	P2P_Insurance.contractInstance.ThrowError().watch(function (error, result) {
 		//console.log('ThrowError: ' + result.args.policeID + ": " + mNr + "/" + result.args.mNr + ": " + result.args.message);
 		if (!error && (result.args.policeID == policeID) && (mNr+"" <= result.args.mNr+"")) {
 			document.getElementById("error").innerText = result.args.message;
